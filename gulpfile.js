@@ -19,7 +19,7 @@ gulp.task('jade', function() {
         errorHandler: notify.onError("jadeのエラーですわよ！: <%= error.message %>")
       }))
     .pipe(jade({
-        pretty: true
+        pretty: true // HTML minify
       }))
     .pipe(gulp.dest('dist/'))
 });
@@ -36,7 +36,7 @@ gulp.task('stylus', function() {
     .pipe(pleeease({
         fallbacks: {
             autoprefixer: ['last 2 versions']
-        },minifier: false,
+        },minifier: true // CSS minify
     }))
     .pipe(gulp.dest('dist/css/'))
     .pipe(browserSync.reload({stream: true}));
@@ -51,7 +51,7 @@ gulp.task('js', function() {
       errorHandler: notify.onError("JSのエラーですわよ！: <%= error.message %>")
     }))
   .pipe(concat('script.js'))
-  .pipe(uglify({preserveComments: 'some'}))
+  .pipe(uglify({preserveComments: 'some'})) // javascript minify
   .pipe(gulp.dest('dist/js'))
   .pipe(browserSync.reload({stream: true}));
 });
