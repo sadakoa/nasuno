@@ -29,6 +29,7 @@ gulp.task('jade', function() {
 
 // stylus compile
 gulp.task('stylus', function() {
+  //gulp.src(['app/stylus/**/*.styl', 'app/stylus/**/!(_)*'])
   gulp.src('app/stylus/*')
     .pipe(cache('stylus'))
     .pipe(plumber({
@@ -89,7 +90,7 @@ gulp.task('bs-reload', function () {
 // ======================================================================
 
 gulp.task('default', ['browser-sync'], function() {
-  gulp.watch('./app/stylus/*', ['stylus']);
+  gulp.watch('./app/stylus/*.styl', ['stylus']);
   gulp.watch('./app/js/*.js',['js']);
   gulp.watch('./app/view/*', ['jade']);
   gulp.watch('./app/img/**/*.{png,jpg,gif,svg}',['imagemin']);
