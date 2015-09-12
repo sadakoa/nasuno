@@ -12,7 +12,7 @@ var imagemin = require('gulp-imagemin'); // 画像の圧縮化
 
 // jade compile
 gulp.task('jade', function() {
-  gulp.src(['view/*', '!' + 'view/_*.jade'])
+  gulp.src(['app/view/*', '!' + 'app/view/_*.jade'])
     .pipe(plumber({
         errorHandler: notify.onError("jadeのエラーですわよ！: <%= error.message %>")
       }))
@@ -75,7 +75,7 @@ gulp.task('bs-reload', function () {
 gulp.task('default', ['browser-sync'], function() {
   gulp.watch('./app/stylus/*', ['stylus']);
   gulp.watch('./app/js/*.js',['js']);
-  gulp.watch('view/*', ['jade']);
+  gulp.watch('./app/view/*', ['jade']);
   gulp.watch('./app/img/**/*.{png,jpg,gif,svg}',['imagemin']);
   gulp.watch("./dist/*.html", ['bs-reload']);
 });
