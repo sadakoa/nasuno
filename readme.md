@@ -4,7 +4,8 @@
 
     Simple gulp template.
     (Jade + Stylus + JavaScript + Imagemin + Livereload)
-    ![nasuno](http://sadakoa.minibird.jp/nasuno.png)
+
+![nasuno](http://sadakoa.minibird.jp/nasuno.png)
 
 ## Run
 
