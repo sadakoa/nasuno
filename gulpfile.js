@@ -10,6 +10,8 @@ var webpack = require('gulp-webpack'); // JSの依存関係解決ツール
 var uglify = require('gulp-uglify'); // 圧縮化
 var imagemin = require('gulp-imagemin'); // 画像の圧縮化
 
+// ======================================================================
+
 // jade compile
 gulp.task('jade', function() {
   gulp.src(['app/view/*', '!' + 'app/view/_*.jade'])
@@ -19,6 +21,8 @@ gulp.task('jade', function() {
     .pipe(jade())
     .pipe(gulp.dest('dist/'))
 });
+
+// ======================================================================
 
 // stylus compile
 gulp.task('stylus', function() {
@@ -36,6 +40,8 @@ gulp.task('stylus', function() {
     .pipe(browserSync.reload({stream: true}));
 });
 
+// ======================================================================
+
 // javascript compile
 gulp.task('js', function() {
   gulp.src('app/js/*.js')
@@ -48,12 +54,16 @@ gulp.task('js', function() {
   .pipe(browserSync.reload({stream: true}));
 });
 
+// ======================================================================
+
 // image minify
 gulp.task('imagemin', function() {
   gulp.src('app/img/**/*.{png,jpg,gif,svg}')
   .pipe(imagemin({optimizationLevel: 7}))
   .pipe(gulp.dest('dist/img'))
 });
+
+// ======================================================================
 
 // server
 gulp.task('browser-sync', function() {
@@ -64,6 +74,8 @@ gulp.task('browser-sync', function() {
     }
   });
 });
+
+// ======================================================================
 
 // browser reload
 gulp.task('bs-reload', function () {
