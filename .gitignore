@@ -1,4 +1,14 @@
+# bundle file
 /.bundle
+
+# node_modules
 node_modules
+
+# cach
 /.cache
+
+# DS store
 .DS_Store
+
+# build file
+dist
