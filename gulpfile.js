@@ -12,7 +12,7 @@ var imagemin = require('gulp-imagemin'); // 画像の圧縮化
 
 // jade compile
 gulp.task('jade', function() {
-  gulp.src('view/*')
+  gulp.src(['view/*', '!' + 'view/_*.jade'])
     .pipe(plumber({
         errorHandler: notify.onError("jadeのエラーですわよ！: <%= error.message %>")
       }))

@@ -1,0 +1,48 @@
+include _config
+
+doctype html
+html(lang="ja")
+  head
+    title #{title}
+
+  // Page Setting
+  meta(charset='UTF8')
+  meta(name='description', content='#{description}')
+  meta(name='Keywords', content='#{keywords}')
+
+  // OGP Setting
+  meta(property='og:title', content='#{title}')
+  meta(property='og:site_name', content='#{title}')
+  meta(property='og:type', content='website')
+  meta(property='og:description', content='#{description}')
+  meta(property='og:url', content='#{siteurl}')
+  meta(property='og:image', content='#{ogimage}')
+  meta(property='og:locale', content='ja_JP')
+
+  // iOS Icon Setting
+  link(rel='apple-touch-icon-precomposed', sizes='144x144', href='')
+  link(rel='apple-touch-icon-precomposed', sizes='114x114', href='')
+  link(rel='apple-touch-icon-precomposed', sizes='72x72', href='')
+  link(rel='apple-touch-icon-precomposed', sizes='57x57', href='')
+
+  // Add to homescreen for Chrome on Android
+  meta(name='mobile-web-app-capable', content='yes')
+
+  // SNS Setting
+  meta(name='twitter:card', content='summary')
+  meta(name='twitter:site', content='#{twsite}')
+
+  // Author Setting
+  link(rel='author', href='https://plus.google.com/[your google plus id]')
+
+  // Viewport Setting
+  meta(name="viewport" content="width=device-width")
+
+  // CSS Setting
+  link(rel='stylesheet', href='css/style.css')
+
+  // Body
+  body
+    block content
+
+
