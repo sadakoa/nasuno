@@ -18,7 +18,9 @@ gulp.task('jade', function() {
     .pipe(plumber({
         errorHandler: notify.onError("jadeのエラーですわよ！: <%= error.message %>")
       }))
-    .pipe(jade())
+    .pipe(jade({
+        pretty: true
+      }))
     .pipe(gulp.dest('dist/'))
 });
 
