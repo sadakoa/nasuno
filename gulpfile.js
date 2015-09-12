@@ -5,10 +5,11 @@ var plumber = require('gulp-plumber'); // watchが止まらないように
 var notify  = require('gulp-notify'); // エラーの通知用
 var concat = require('gulp-concat'); // ファイルを一つにまとめる
 var browserSync = require('browser-sync'); // オートリロード
-var pleeease = require('gulp-pleeease'); // ベンダープレフィックスの自動付与
+var pleeease = require('gulp-pleeease'); // ベンダープレフィックスの自動付与, CSSの圧縮
 var webpack = require('gulp-webpack'); // JSの依存関係解決ツール
-var uglify = require('gulp-uglify'); // 圧縮化
+var uglify = require('gulp-uglify'); // JSの圧縮化
 var imagemin = require('gulp-imagemin'); // 画像の圧縮化
+var cache = require('gulp-cached'); // 変更したファイルだけ処理
 
 // ======================================================================
 
@@ -29,6 +30,7 @@ gulp.task('jade', function() {
 // stylus compile
 gulp.task('stylus', function() {
   gulp.src('app/stylus/*')
+    .pipe(cache('stylus'))
     .pipe(plumber({
         errorHandler: notify.onError("stylusのエラーですわよ！: <%= error.message %>")
       }))
