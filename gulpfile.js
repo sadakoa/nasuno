@@ -33,6 +33,7 @@ gulp.task('stylus', function() {
         },minifier: false,
     }))
     .pipe(gulp.dest('dist/css/'))
+    .pipe(browserSync.reload({stream: true}));
 });
 
 // javascript compile
@@ -44,6 +45,7 @@ gulp.task('js', function() {
   .pipe(concat('script.js'))
   .pipe(uglify({preserveComments: 'some'}))
   .pipe(gulp.dest('dist/js'))
+  .pipe(browserSync.reload({stream: true}));
 });
 
 // image minify
@@ -56,8 +58,16 @@ gulp.task('imagemin', function() {
 // server
 gulp.task('browser-sync', function() {
   browserSync({
-    server: './dist'
+    server: {
+      baseDir: "./dist",
+      index: "index.html"
+    }
   });
+});
+
+// browser reload
+gulp.task('bs-reload', function () {
+    browserSync.reload();
 });
 
 // ======================================================================
@@ -67,4 +77,5 @@ gulp.task('default', ['browser-sync'], function() {
   gulp.watch('./app/js/*.js',['js']);
   gulp.watch('view/*', ['jade']);
   gulp.watch('./app/img/**/*.{png,jpg,gif,svg}',['imagemin']);
+  gulp.watch("./dist/*.html", ['bs-reload']);
 });
