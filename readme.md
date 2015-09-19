@@ -3,7 +3,7 @@
 ## About
 
     Simple gulp template.
-    (Jade + Stylus + JavaScript + Imagemin + Livereload)
+    (Jade + Stylus + JavaScript + Imagemin + Livereload + browsersync)
 
 ![nasuno](http://sadakoa.minibird.jp/nasuno.png)
 
